@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+// import './styles/less/master.less';
+// import './styles/basic.css';
+// import './styles/styles.css';
+import Navbar from "./components/navbar.js"
+import NotFound from './components/not-found.js'
+import ArtistCard from "./views/artist-card.js"
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+       <Router> 
+        <div className="container">
+          <header className="header">
+            <Navbar />
+          </header>
+        </div>
+        <main className="main">
+          <section className="section section-artist-detail trending claimed">
+          <Routes>
+              <Route path=":artistUuid" element={<ArtistCard />} />
+              <Route path="*" element={<NotFound />} />
+          </Routes>  
+          </section>
+        </main> 
+      </Router>   
   );
 }
 
