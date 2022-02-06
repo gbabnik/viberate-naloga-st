@@ -70,7 +70,7 @@ if (!artistsData) return <div className = "error"><div className ="error-msg"> "
 
                         <div className="row">
                             <label>Origin</label>
-                            <a className="btn btn-filter-tag">{artistsData.data.country.name}</a>
+                            <span className="btn btn-filter-tag">{artistsData.data.country.name}</span>
                         </div>
 
                         <div className="row">
